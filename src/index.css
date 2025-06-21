@@ -1,0 +1,86 @@
+@import url('https://fonts.googleapis.com/css2?family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap');
+@import "tailwindcss";
+
+@theme{
+    --font-display: 'Urbanist', sans-serif;
+    ----breakpoint-3xl: 1920px;
+    /* --color-primary:#FF9324 */
+}
+
+/* index.css */
+/* 1. Your “light” defaults */
+:root {
+  --bg:   #ffffff;
+ --fg:   #111111;
+  --accent: #3b82f6;
+  --muted:  #6b7280; 
+  transition: background-color .2s, 
+}
+
+/* 2. Dark overrides under .dark on <html> */
+.dark {
+  --bg:   #111827;
+  --fg:   #f9fafb;
+  --accent: #60a5fa;
+  --muted:  #9ca3af;
+}
+
+/* 3. Apply them globally */
+html, body {
+  margin: 0;
+  padding: 0;
+  background: var(--bg);
+  color:      var(--fg);
+  font-family: sans-serif;
+}
+
+/* 4. Utility classes */
+.btn {
+  padding: .5rem 1rem;
+  border: 2px solid var(--muted);
+  background: none;
+  color: var(--fg);
+  cursor: pointer;
+  transition: background-color .2s, border-color .2s;
+}
+.btn:hover {
+  border-color: var(--accent);
+  background: var(--accent);
+  color: var(--bg);
+}
+
+@layer base {
+  html{
+    font-family: var(--font-display);
+  }
+
+  body{
+    /* background-color: #fcfbfc; */
+    overflow-x: hidden;
+  }
+}
+
+/* Custom Scrollbar styling */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 4px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background-color: #ccc;
+  border-radius: 2px;
+}
+
+@layer utilities {
+  @keyframes text-shine {
+    0% {
+      background-position: 0% 50%;
+    }
+  100% {
+      background-position: 100% 50%;
+    }
+  }
+
+  .animate-text-shine {
+    animation: text-shine 3s ease-in-out infinite alternate;
+    }
+}
